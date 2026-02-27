@@ -1,54 +1,25 @@
-"use client";
-
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import Link from 'next/link';
 import {
   Search,
   MapPin,
   Home as HomeIcon,
-  Users,
-  TrendingUp,
-  ArrowRight,
-  Phone,
-  MessageCircle,
-  Instagram,
-  Facebook,
+  Building,
   ChevronDown,
   Star,
-  CheckCircle,
-  Menu,
-  X,
-  Building,
+  MessageCircle,
+  Users,
+  ArrowRight,
+  Phone,
+  TrendingUp,
   Mail,
-  Calendar,
+  CheckCircle,
   Clock,
-  ShieldCheck,
   Award
 } from 'lucide-react';
+import SectionHeading from '@/components/SectionHeading';
 
-// --- Shared Components ---
-
-const SectionHeading = ({ badge, title, subtitle, light = false }: {
-  badge?: string;
-  title: string;
-  subtitle?: string;
-  light?: boolean;
-}) => (
-  <div className="space-y-4 mb-12">
-    {badge && (
-      <div className="inline-block bg-emerald-100/80 px-4 py-1.5 rounded-full text-emerald-800 text-sm font-semibold uppercase tracking-wider">
-        {badge}
-      </div>
-    )}
-    <h2 className={`text-4xl lg:text-5xl font-bold leading-tight ${light ? 'text-white' : 'text-slate-800'}`}>
-      {title}
-    </h2>
-    {subtitle && <p className={`max-w-2xl text-lg ${light ? 'text-slate-300' : 'text-slate-600'}`}>{subtitle}</p>}
-  </div>
-);
-
-// --- Page Components ---
-
-const HomePage = ({ setPage }: { setPage: (page: string) => void }) => (
+const HomePage = () => (
   <>
     {/* Hero Section */}
     <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
@@ -95,16 +66,64 @@ const HomePage = ({ setPage }: { setPage: (page: string) => void }) => (
             </button>
           </div>
         </div>
-        <div className="relative">
-          <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=1000" alt="Green Field" className="w-full h-[600px] object-cover" />
-            <div className="absolute bottom-6 left-6 right-6 bg-black/40 backdrop-blur-md p-6 rounded-2xl text-white border border-white/10">
-              <p className="text-3xl font-bold">₹72 Lakh*</p>
-              <div className="flex items-center gap-4 mt-2 text-sm opacity-90">
-                <span className="flex items-center gap-1"><MapPin size={14} /> TechZone</span>
-                <span className="flex items-center gap-1"><HomeIcon size={14} /> 1008 Gaz</span>
+
+        <div className="space-y-6">
+          <div className="relative">
+            <div className="relative rounded-[40px] overflow-hidden shadow-2xl">
+              <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=1000" alt="Green Field" className="w-full h-[550px] object-cover" />
+
+              {/* Overlay Gradient */}
+              <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/80 to-transparent" />
+
+              {/* Price and Location Overlay */}
+              <div className="absolute bottom-10 left-10 text-white space-y-4">
+                <h2 className="text-5xl font-black tracking-tight">₹72 Lakh*</h2>
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2 text-lg font-medium opacity-90">
+                    <MapPin size={20} className="text-emerald-400" />
+                    <span>TechZone</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-lg font-medium opacity-90">
+                    <HomeIcon size={20} className="text-emerald-400" />
+                    <span>1008 Gaz (9,072 sq. ft.)</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Floating Images */}
+              <div className="absolute -right-6 top-1/2 -translate-y-1/2 flex flex-col gap-6 scale-90 lg:scale-100 origin-right">
+                <div className="w-48 h-48 rounded-3xl overflow-hidden border-4 border-white shadow-2xl skew-y-3 -rotate-3 hover:rotate-0 transition-transform duration-500">
+                  <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=300" alt="Plot View 1" className="w-full h-full object-cover" />
+                </div>
+                <div className="w-48 h-48 rounded-3xl overflow-hidden border-4 border-white shadow-2xl -skew-y-3 rotate-3 hover:rotate-0 transition-transform duration-500">
+                  <img src="https://images.unsplash.com/photo-1510673398445-94f476ef2cbc?auto=format&fit=crop&q=80&w=300" alt="Plot View 2" className="w-full h-full object-cover" />
+                </div>
               </div>
             </div>
+          </div>
+
+          {/* Director Profile Card */}
+          <div className="bg-white p-4 rounded-3xl shadow-xl border border-slate-100 max-w-md ml-4 -mt-8 relative z-20 flex items-center justify-between group hover:shadow-2xl transition-all duration-300">
+            <div className="flex items-center gap-4">
+              <div className="relative">
+                <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-emerald-500 p-0.5">
+                  <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=150" alt="Director" className="w-full h-full rounded-full object-cover" />
+                </div>
+              </div>
+              <div>
+                <h4 className="text-xl font-bold text-slate-800">Amritha Jha</h4>
+                <p className="text-slate-500 font-medium text-sm">Director</p>
+                <div className="flex items-center gap-1.5 mt-1">
+                  <div className="flex text-yellow-400">
+                    {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="currentColor" />)}
+                  </div>
+                  <span className="text-xs font-bold text-slate-600">5.0 (94 reviews)</span>
+                </div>
+              </div>
+            </div>
+            <button className="bg-emerald-600 p-3 rounded-full text-white shadow-lg shadow-emerald-600/20 group-hover:bg-emerald-700 transition-colors">
+              <MessageCircle size={20} fill="currentColor" />
+            </button>
           </div>
         </div>
       </div>
@@ -127,6 +146,331 @@ const HomePage = ({ setPage }: { setPage: (page: string) => void }) => (
       </div>
     </section>
 
+    {/* About Our Company Section */}
+    <section className="py-24 bg-slate-50">
+      <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+        <div className="relative">
+          <div className="rounded-[40px] overflow-hidden shadow-2xl relative">
+            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=1000" alt="Centurion Group Land" className="w-full aspect-[4/3] object-cover" />
+            <div className="absolute top-8 left-8 bg-emerald-800 text-white p-6 rounded-3xl shadow-xl text-center min-w-[140px]">
+              <div className="text-4xl font-black mb-1">5+</div>
+              <div className="text-xs font-bold uppercase tracking-widest opacity-80">Years<br />Experience</div>
+            </div>
+          </div>
+          <div className="absolute -bottom-12 -right-6 w-2/3 rounded-3xl overflow-hidden border-8 border-white shadow-2xl hidden md:block">
+            <img src="https://images.unsplash.com/photo-1510673398445-94f476ef2cbc?auto=format&fit=crop&q=80&w=600" alt="Property Inset" className="w-full aspect-video object-cover" />
+          </div>
+        </div>
+        <div className="space-y-8">
+          <SectionHeading
+            badge="About Our Company"
+            title="Get To Know About Om Enterprises"
+          />
+          <p className="text-slate-600 text-lg leading-relaxed">
+            An Om Enterprises luxury farmhouse near Jewar Airport on the Yamuna Expressway with a starting price of 99 lakhs. The Luxury farmhouse comes up with a range of amenities, such as spacious living quarters, well-maintained gardens, swimming pools, security services, and sometimes even private helipads. The specific amenities will vary depending on the property. It has modern and opulent design. The starting price of 99 lakhs for a luxury farmhouse is relatively affordable compared to luxury properties in many other parts of the world.
+          </p>
+          <div className="space-y-6 pt-4">
+            <div className="flex items-center gap-6">
+              <div className="w-14 h-14 bg-emerald-100 rounded-2xl flex items-center justify-center text-emerald-700">
+                <HomeIcon size={28} />
+              </div>
+              <div>
+                <h4 className="text-xl font-bold text-slate-800">50+ plots Sold</h4>
+                <p className="text-slate-500 font-medium">Successfully completed transactions</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-6">
+              <div className="w-14 h-14 bg-emerald-100 rounded-2xl flex items-center justify-center text-emerald-700">
+                <Users size={28} />
+              </div>
+              <div>
+                <h4 className="text-xl font-bold text-slate-800">98% Client Satisfaction</h4>
+                <p className="text-slate-500 font-medium">Happy customers recommend us</p>
+              </div>
+            </div>
+          </div>
+          <div className="flex flex-wrap items-center gap-8 pt-8">
+            <Link href="/about" className="bg-emerald-800 text-white px-8 py-4 rounded-2xl font-bold shadow-lg shadow-emerald-800/20 hover:bg-emerald-900 transition-all flex items-center gap-3 group">
+              Discover Our Story <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-full border border-slate-200 flex items-center justify-center text-emerald-700">
+                <Phone size={20} />
+              </div>
+              <div>
+                <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">Call us today</p>
+                <p className="text-lg font-bold text-slate-800">+91-95995-47191</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Featured Properties Section */}
+    <section className="py-24 bg-white">
+      <div className="container mx-auto px-6 text-center space-y-4 mb-16">
+        <h2 className="text-5xl font-black text-slate-800">Featured Properties</h2>
+        <div className="w-20 h-1.5 bg-emerald-600 mx-auto rounded-full" />
+        <p className="text-slate-500 text-lg max-w-2xl mx-auto">Explore our featured properties with premium locations, modern amenities, best prices, and limited-time investment opportunities available now.</p>
+      </div>
+
+      <div className="container mx-auto px-6 grid lg:grid-cols-3 gap-8">
+        {/* Large Main Card */}
+        <div className="lg:col-span-2 bg-white rounded-[40px] overflow-hidden shadow-xl border border-slate-100 group">
+          <div className="relative aspect-[16/9] overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=1200" alt="Lotus Farms" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <div className="absolute top-6 left-6 bg-purple-600 text-white px-5 py-1.5 rounded-full text-sm font-black uppercase tracking-widest">PREMIUM</div>
+
+            <div className="absolute bottom-6 left-6 right-6 flex flex-wrap gap-4">
+              <div className="bg-black/30 backdrop-blur-md px-4 py-2 rounded-xl text-white flex items-center gap-2 border border-white/20">
+                <HomeIcon size={16} className="text-emerald-400" />
+                <span className="text-sm font-bold">Farm Land</span>
+              </div>
+              <div className="bg-black/30 backdrop-blur-md px-4 py-2 rounded-xl text-white flex items-center gap-2 border border-white/20">
+                <Search size={16} className="text-emerald-400" />
+                <span className="text-sm font-bold">CCTV Surveillance</span>
+              </div>
+              <div className="bg-black/30 backdrop-blur-md px-4 py-2 rounded-xl text-white flex items-center gap-2 border border-white/20">
+                <TrendingUp size={16} className="text-emerald-400" />
+                <span className="text-sm font-bold">1008 Sq.Yd.</span>
+              </div>
+            </div>
+          </div>
+          <div className="p-10 space-y-6">
+            <div className="flex justify-between items-start">
+              <div className="space-y-2">
+                <h3 className="text-4xl font-black text-slate-800">Lotus Farms Land</h3>
+                <p className="text-slate-400 flex items-center gap-2 font-medium">
+                  <MapPin size={18} className="text-emerald-600" /> Behind WTC, Techzone Greater Noida
+                </p>
+              </div>
+              <div className="bg-emerald-800 text-white px-8 py-3 rounded-2xl text-3xl font-black shadow-lg shadow-emerald-800/20">
+                ₹72,00,000
+              </div>
+            </div>
+            <p className="text-slate-500 text-lg leading-relaxed">
+              Lotus Farm House is a premium farmhouse project designed to offer a peaceful lifestyle surrounded by nature. The project features well-planned plots, open green spaces, and a calm environment away from city noise. With good road connectivity and essential amenities, it ensures both comfort and convenience. Lotus Farm House is an ideal choice for weekend homes, long-term living, and smart investment opportunities. Its serene surroundings, fresh air, and future growth potential make it perfect for families and investors seeking a balanced and relaxed lifestyle.
+            </p>
+            <div className="flex items-center justify-between pt-4">
+              <div className="flex items-center gap-4">
+                <button className="bg-emerald-800 text-white px-8 py-4 rounded-2xl font-black shadow-lg shadow-emerald-800/20 hover:bg-emerald-900 transition-all">SCHEDULE TOUR</button>
+                <button className="border-2 border-emerald-800 text-emerald-800 px-8 py-4 rounded-2xl font-black hover:bg-emerald-50 transition-all">VIEW GALLERY</button>
+              </div>
+              <div className="flex flex-col items-end">
+                <span className="bg-emerald-100 text-emerald-700 px-4 py-1 rounded-full text-xs font-black uppercase mb-1">FOR SALE</span>
+                <span className="text-slate-400 text-sm font-medium">Listed today</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Small Cards Column */}
+        <div className="space-y-8">
+          {[
+            { title: "The Lake Country Side Farms", loc: "Aligarh - Palwal State Highway, Tappal Dist. Aligarh U.P", price: "₹1,50,00,000", tag: "HOT DEAL", tagCol: "bg-orange-500", img: "https://images.unsplash.com/photo-1510673398445-94f476ef2cbc?auto=format&fit=crop&q=80&w=500" },
+            { title: "Grandthum", loc: "Plot no, A2, 2 road, Techzone 4, Patwari, Greater Noida, Uttar Pradesh", price: "₹3,50,00,000", tag: "NEW LISTING", tagCol: "bg-emerald-500", img: "https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&q=80&w=500" }
+          ].map((p, idx) => (
+            <div key={idx} className="bg-white rounded-[40px] overflow-hidden shadow-xl border border-slate-50 group flex flex-col h-[calc(50%-16px)]">
+              <div className="relative h-56 overflow-hidden">
+                <img src={p.img} alt={p.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                <div className={`absolute top-4 right-4 ${p.tagCol} text-white px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest`}>{p.tag}</div>
+              </div>
+              <div className="p-8 space-y-4 flex-grow flex flex-col justify-between">
+                <div className="space-y-2">
+                  <h4 className="text-2xl font-black text-slate-800 leading-tight">{p.title}</h4>
+                  <p className="text-slate-400 text-xs flex items-center gap-1 font-medium"><MapPin size={12} className="text-emerald-600" /> {p.loc}</p>
+                </div>
+                <div className="flex items-center gap-3 text-[10px] font-bold text-slate-500 uppercase">
+                  <span className="flex items-center gap-1"><HomeIcon size={12} className="text-emerald-500" /> Farm Land</span>
+                  <span className="flex items-center gap-1 text-emerald-700">Flower Gardens</span>
+                  <span className="flex items-center gap-1">1008 Sq.Yd.</span>
+                </div>
+                <div className="flex justify-between items-center pt-2">
+                  <div className="text-2xl font-black text-slate-800">{p.price}</div>
+                  <button className="bg-emerald-800 text-white px-5 py-2 rounded-xl text-[10px] font-black hover:bg-emerald-900 shadow-md">VIEW</button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Medium Bottom Card */}
+        <div className="lg:col-span-3">
+          <div className="bg-white rounded-[40px] overflow-hidden shadow-xl border border-slate-50 grid md:grid-cols-2 group">
+            <div className="relative min-h-[300px] overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&q=80&w=800" alt="AVS Homes" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <div className="absolute top-6 left-6 bg-purple-700 text-white px-5 py-1 rounded-full text-xs font-black uppercase tracking-widest flex items-center gap-2">
+                <Star size={12} fill="currentColor" /> EXCLUSIVE
+              </div>
+            </div>
+            <div className="p-10 space-y-6 flex flex-col justify-center">
+              <div className="space-y-2">
+                <h3 className="text-4xl font-black text-slate-800">AVS Homes</h3>
+                <p className="text-slate-400 flex items-center gap-2 font-medium">
+                  <MapPin size={18} className="text-emerald-600" /> Sector-17B Dankaur
+                </p>
+                <div className="flex items-center gap-6 pt-2 font-bold text-slate-500 text-sm">
+                  <span className="flex items-center gap-2"><HomeIcon size={16} className="text-emerald-600" /> Plot</span>
+                  <span className="flex items-center gap-2 uppercase">Nagar Panchayat</span>
+                  <span className="flex items-center gap-2">100 Gaz</span>
+                </div>
+              </div>
+              <p className="text-slate-500 text-lg leading-relaxed line-clamp-3">
+                AVS Homes Plots premium residential plots offer the perfect blend of location, connectivity, and investment value. Designed for modern living, these plots provide clear titles, planned infrastructure, and a peaceful environment—ideal for building your dream home or securing a smart, long-term real estate investment.
+              </p>
+              <div className="flex justify-between items-center pt-4">
+                <div className="text-3xl font-black text-slate-800">₹40,00,000</div>
+                <button className="bg-emerald-700 text-white px-8 py-3 rounded-2xl font-black shadow-lg shadow-emerald-700/20 hover:bg-emerald-800 uppercase tracking-widest text-sm">VIEW DETAILS</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Featured Agents Section */}
+    <section className="py-24 bg-slate-50">
+      <div className="container mx-auto px-6 text-center space-y-4 mb-16">
+        <h2 className="text-5xl font-black text-slate-800">Featured Agents</h2>
+        <div className="w-20 h-1.5 bg-emerald-600 mx-auto rounded-full" />
+        <p className="text-slate-600 text-lg max-w-4xl mx-auto leading-relaxed">
+          Our agents at Century Group are experienced professionals with deep knowledge of plots and farm land projects. They provide personalized guidance, transparent communication, and complete support throughout the buying and selling process.
+        </p>
+      </div>
+
+      <div className="container mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {[
+          { name: "Shivam Kumar", role: "SALES EXECUTIVE", badge: "STAR AGENT", bCol: "bg-yellow-400", img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400" },
+          { name: "Vikash Kumar", role: "SALES EXECUTIVE", badge: "EXPERT", bCol: "bg-emerald-700", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400" },
+          { name: "Diwakar Singh", role: "SALES EXECUTIVE", badge: "RISING STAR", bCol: "bg-emerald-500", img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400", active: true },
+          { name: "Pragati Pandey", role: "SALES EXECUTIVE", badge: "RISING STAR", bCol: "bg-purple-600", img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=400" }
+        ].map((a, i) => (
+          <div key={i} className="bg-white rounded-[40px] overflow-hidden shadow-xl border border-slate-100 group transition-all duration-500 hover:-translate-y-3">
+            <div className="relative aspect-[4/5] overflow-hidden">
+              <img src={a.img} alt={a.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+              <div className={`absolute top-6 left-6 ${a.bCol} text-white px-5 py-1.5 rounded-full text-[10px] font-black tracking-widest uppercase`}>{a.badge}</div>
+
+              {a.active && (
+                <div className="absolute inset-0 bg-emerald-900/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="flex gap-4">
+                    <button className="bg-white text-emerald-700 p-4 rounded-full shadow-2xl hover:bg-emerald-50 transition-colors"><Phone size={24} /></button>
+                    <button className="bg-white text-emerald-700 p-4 rounded-full shadow-2xl hover:bg-emerald-50 transition-colors"><Mail size={24} /></button>
+                  </div>
+                </div>
+              )}
+            </div>
+            <div className="p-8 text-center space-y-2">
+              <h4 className="text-2xl font-black text-slate-800">{a.name}</h4>
+              <p className="text-emerald-700 font-black text-xs tracking-widest">{a.role}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    {/* Why Us Section */}
+    <section className="py-24 bg-white overflow-hidden">
+      <div className="container mx-auto px-6">
+        <div className="text-center space-y-4 mb-20">
+          <h2 className="text-5xl font-black text-slate-800">Why Us</h2>
+          <div className="w-20 h-1.5 bg-emerald-600 mx-auto rounded-full" />
+          <p className="text-slate-500 text-lg max-w-4xl mx-auto leading-relaxed">
+            Om Enterprises is a trusted name in real estate, known for transparent deals, prime locations, and customer-first service. With years of experience, quality developments, and strong after-sales support, Om Enterprises helps clients invest safely and grow their future with confidence.
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="space-y-10">
+            <h3 className="text-4xl font-black text-slate-800 leading-tight">
+              Why Choose Om Enterprises for Real Estate Partners?
+            </h3>
+            <p className="text-slate-500 text-lg">
+              With over two decades of experience in the real estate market, we've built our reputation on trust, expertise, and exceptional results. Our dedicated team of local experts understands the nuances of every neighborhood and market trend.
+            </p>
+
+            <div className="space-y-6">
+              {[
+                { title: "Local Market Expertise", desc: "Deep knowledge of neighborhoods, pricing trends, and market conditions in your area." },
+                { title: "Verified Listings Only", desc: "Every property is thoroughly vetted and verified before listing to ensure accuracy and quality." },
+                { title: "24/7 Client Support", desc: "Our dedicated support team is available around the clock to assist with your real estate needs." },
+                { title: "Proven Track Record", desc: "Consistently delivering results with over 500 successful transactions and 98% client satisfaction." }
+              ].map((item, i) => (
+                <div key={i} className="flex gap-6 group">
+                  <div className="w-12 h-12 rounded-full bg-emerald-700 text-white flex items-center justify-center shrink-0 shadow-lg shadow-emerald-700/20 group-hover:scale-110 transition-transform">
+                    <CheckCircle size={24} />
+                  </div>
+                  <div className="space-y-1">
+                    <h4 className="text-xl font-bold text-slate-800">{item.title}</h4>
+                    <p className="text-slate-500 leading-relaxed border-b border-slate-100 pb-4">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex gap-4 pt-4">
+              <Link href="/about" className="bg-emerald-800 text-white px-8 py-4 rounded-2xl font-bold hover:bg-emerald-900 transition-all shadow-lg shadow-emerald-800/20">Learn More About Us</Link>
+              <Link href="/contact" className="border-2 border-emerald-800 text-emerald-800 px-8 py-4 rounded-2xl font-bold hover:bg-emerald-50 transition-all">Contact Our Team</Link>
+            </div>
+          </div>
+
+          <div className="space-y-8">
+            <div className="grid grid-cols-2 gap-6">
+              {[
+                { icon: <HomeIcon />, val: "500+", label: "Plots Sold", sub: "Successfully closed transactions across all property types and price ranges." },
+                { icon: <Users />, val: "98%", label: "Client Satisfaction", sub: "Exceptional service quality rated by our satisfied homeowners and investors." },
+                { icon: <Clock />, val: "20+", label: "Years Experience", sub: "Two decades of expertise navigating changing market conditions successfully." },
+                { icon: <Award />, val: "45+", label: "Industry Awards", sub: "Recognition for excellence in real estate service and client satisfaction." }
+              ].map((stat, i) => (
+                <div key={i} className="bg-white p-8 rounded-[40px] shadow-xl border border-slate-50 space-y-4 hover:shadow-2xl transition-all duration-500 group">
+                  <div className="text-emerald-700 group-hover:scale-110 transition-transform">{stat.icon}</div>
+                  <div className="space-y-1">
+                    <div className="text-4xl font-black text-slate-800">{stat.val}</div>
+                    <div className="font-bold text-slate-700">{stat.label}</div>
+                  </div>
+                  <p className="text-xs text-slate-400 leading-relaxed font-medium">{stat.sub}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Testimonial Quote */}
+            <div className="bg-emerald-700 rounded-[40px] p-10 text-white relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16 blur-3xl group-hover:scale-150 transition-transform duration-700" />
+              <div className="text-4xl font-serif mb-6 opacity-30">“</div>
+              <p className="text-xl font-medium leading-relaxed relative z-10 italic">
+                Working with this team made buying our first plot a seamless experience. Their knowledge of the local market and dedication to finding the perfect property exceeded our expectations.
+              </p>
+              <div className="mt-8 flex items-center gap-4 relative z-10">
+                <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-white/20">
+                  <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150" alt="Khushi Rajpoot" className="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <h5 className="font-bold">Khushi Rajpoot</h5>
+                  <p className="text-xs opacity-70">General Manager</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Big Help CTA Section */}
+    <section className="py-24 bg-white">
+      <div className="container mx-auto px-6 text-center space-y-10">
+        <h2 className="text-6xl font-black text-slate-800 tracking-tight leading-tight">
+          Need Help Finding Your Dream <br /> Plots?
+        </h2>
+        <p className="text-slate-500 text-xl max-w-3xl mx-auto leading-relaxed">
+          Om Enterprises is here to guide you at every step. From verified listings and prime locations to transparent pricing and expert support, we make buying and investing in real estate simple, secure, and stress-free. Let us turn your property goals into reality.
+        </p>
+        <div className="flex flex-wrap justify-center gap-6 pt-4">
+          <Link href="/contact" className="bg-emerald-800 text-white px-10 py-5 rounded-full font-black text-lg shadow-xl shadow-emerald-800/20 hover:bg-emerald-900 transition-all">Contact Us Today</Link>
+          <Link href="tel:+919599547191" className="border-2 border-emerald-800 text-emerald-800 px-10 py-5 rounded-full font-black text-lg hover:bg-emerald-50 transition-all">Schedule a Call</Link>
+        </div>
+      </div>
+    </section>
+
     {/* CTA Section */}
     <section className="py-20 bg-emerald-900 text-white relative overflow-hidden">
       <div className="absolute inset-0 opacity-10 pointer-events-none">
@@ -136,448 +480,12 @@ const HomePage = ({ setPage }: { setPage: (page: string) => void }) => (
         <h2 className="text-4xl md:text-5xl font-bold">Ready to secure your future?</h2>
         <p className="text-emerald-100 max-w-xl mx-auto text-lg">Join hundreds of satisfied investors who found their perfect plots with Om Enterprises Realty.</p>
         <div className="flex flex-wrap justify-center gap-4">
-          <button onClick={() => setPage('contact')} className="bg-white text-emerald-900 px-8 py-4 rounded-xl font-bold hover:bg-emerald-50 transition-colors">Book a Consultation</button>
-          <button onClick={() => setPage('properties')} className="border border-white/30 text-white px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition-colors">Explore Plots</button>
+          <Link href="/contact" className="bg-white text-emerald-900 px-8 py-4 rounded-xl font-bold hover:bg-emerald-50 transition-colors">Book a Consultation</Link>
+          <Link href="/property" className="border border-white/30 text-white px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition-colors">Explore Plots</Link>
         </div>
       </div>
     </section>
   </>
 );
 
-const AboutPage = () => (
-  <section className="pt-40 pb-20">
-    <div className="container mx-auto px-6">
-      <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
-        <div className="relative">
-          <div className="rounded-[40px] overflow-hidden shadow-2xl">
-            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1000" alt="Landscape" className="w-full aspect-square object-cover" />
-          </div>
-          <div className="absolute -bottom-10 -right-10 bg-white p-8 rounded-3xl shadow-2xl hidden md:block border border-slate-100">
-            <p className="text-emerald-800 text-4xl font-bold">15+</p>
-            <p className="text-slate-500 font-medium">Years of Trust</p>
-          </div>
-        </div>
-        <div className="space-y-8">
-          <SectionHeading
-            badge="About Om Enterprises Realty"
-            title="Building a Legacy of Trust in Real Estate"
-            subtitle="Since our inception, we have been at the forefront of providing premium land investment opportunities near high-growth corridors like the Yamuna Expressway."
-          />
-          <div className="grid sm:grid-cols-2 gap-6">
-            {[
-              { icon: <ShieldCheck />, t: "Secure Titles", d: "Legal verification and documentation for every plot." },
-              { icon: <Award />, t: "Premium Locations", d: "Strategically located near upcoming infrastructure projects." },
-              { icon: <CheckCircle />, t: "Transparent Pricing", d: "No hidden costs, straightforward dealings." },
-              { icon: <TrendingUp />, t: "High Appreciation", d: "Proven track record of property value growth." }
-            ].map((item, i) => (
-              <div key={i} className="p-6 bg-white rounded-2xl border border-slate-100 hover:shadow-lg transition-shadow">
-                <div className="text-emerald-600 mb-4">{item.icon}</div>
-                <h4 className="font-bold text-lg mb-1">{item.t}</h4>
-                <p className="text-sm text-slate-500">{item.d}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Vision/Mission */}
-      <div className="grid md:grid-cols-2 gap-8">
-        <div className="bg-emerald-800 text-white p-12 rounded-[40px] space-y-4">
-          <h3 className="text-3xl font-bold">Our Mission</h3>
-          <p className="text-emerald-50 leading-relaxed">To empower individuals with high-value land investments that serve as a foundation for their dream homes and long-term financial security through transparent and professional guidance.</p>
-        </div>
-        <div className="bg-slate-800 text-white p-12 rounded-[40px] space-y-4">
-          <h3 className="text-3xl font-bold">Our Vision</h3>
-          <p className="text-slate-300 leading-relaxed">To be the most trusted name in real estate development, recognized for our commitment to quality, integrity, and transforming landscapes into vibrant, smart-living communities.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-);
-
-const PropertiesPage = () => {
-  const properties = [
-    { id: 1, title: "Emerald Valley Plots", loc: "Sector 150, Noida", price: "₹65 Lakh*", size: "900 Sq. Ft.", type: "Residential", img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=400" },
-    { id: 2, title: "Grand Farmhouses", loc: "Yamuna Expressway", price: "₹1.2 Cr*", size: "2000 Sq. Ft.", type: "Farmhouse", img: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=400" },
-    { id: 3, title: "Tech City Residency", loc: "Greater Noida West", price: "₹45 Lakh*", size: "750 Sq. Ft.", type: "Residential", img: "https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&q=80&w=400" },
-    { id: 4, title: "Om Green Estates", loc: "Jewar Airport Side", price: "₹88 Lakh*", size: "1200 Sq. Ft.", type: "Premium Plot", img: "https://images.unsplash.com/photo-1510673398445-94f476ef2cbc?auto=format&fit=crop&q=80&w=400" },
-    { id: 5, title: "Skyline Avenue", loc: "Knowledge Park V", price: "₹55 Lakh*", size: "850 Sq. Ft.", type: "Residential", img: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&q=80&w=400" },
-    { id: 6, title: "Riverview Estate", loc: "Sector 128", price: "₹2.5 Cr*", size: "5000 Sq. Ft.", type: "Luxury Plot", img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=400" },
-  ];
-
-  return (
-    <section className="pt-40 pb-20">
-      <div className="container mx-auto px-6">
-        <SectionHeading
-          badge="Property Listings"
-          title="Explore Our Exclusive Plots"
-          subtitle="Carefully curated plots in the most sought-after locations for investment and residency."
-        />
-
-        {/* Filters Placeholder */}
-        <div className="flex flex-wrap gap-4 mb-12">
-          {["All Properties", "Residential", "Farmhouse", "Commercial"].map((f, i) => (
-            <button key={i} className={`px-6 py-2 rounded-full font-medium transition-all ${i === 0 ? 'bg-emerald-700 text-white shadow-lg' : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'}`}>
-              {f}
-            </button>
-          ))}
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {properties.map(p => (
-            <div key={p.id} className="bg-white rounded-3xl overflow-hidden shadow-lg border border-slate-100 group">
-              <div className="relative h-64 overflow-hidden">
-                <img src={p.img} alt={p.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                <div className="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-lg text-emerald-800 text-xs font-bold uppercase tracking-wider">
-                  {p.type}
-                </div>
-              </div>
-              <div className="p-6 space-y-4">
-                <div>
-                  <h3 className="text-xl font-bold text-slate-800">{p.title}</h3>
-                  <p className="text-slate-400 text-sm flex items-center gap-1 mt-1"><MapPin size={12} /> {p.loc}</p>
-                </div>
-                <div className="flex justify-between items-center py-4 border-y border-slate-100">
-                  <div className="text-slate-500 text-sm flex items-center gap-1"><HomeIcon size={14} /> {p.size}</div>
-                  <div className="text-emerald-700 font-bold text-lg">{p.price}</div>
-                </div>
-                <button className="w-full py-3 rounded-xl border-2 border-slate-100 font-bold text-slate-800 hover:bg-emerald-700 hover:text-white hover:border-emerald-700 transition-all">
-                  View Details
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const TeamPage = () => {
-  const members = [
-    { name: "Arpita Jha", role: "CEO", img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200" },
-    { name: "Verma", role: "Head of Sales", img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200" },
-    { name: "Sharma", role: "Customer Relations", img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200" },
-    { name: "Kapoor", role: "Legal Advisor", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200" },
-  ];
-
-  return (
-    <section className="pt-40 pb-20">
-      <div className="container mx-auto px-6 text-center">
-        <SectionHeading
-          badge="Our Team"
-          title="Experts at Om Enterprises Realty"
-          subtitle="Our dedicated professionals work tirelessly to ensure your investment journey is smooth and rewarding."
-        />
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {members.map((m, i) => (
-            <div key={i} className="bg-white p-8 rounded-[40px] shadow-lg border border-slate-50 group hover:-translate-y-2 transition-transform">
-              <div className="relative w-32 h-32 mx-auto mb-6">
-                <img src={m.img} alt={m.name} className="w-full h-full rounded-full object-cover ring-4 ring-emerald-50" />
-                <div className="absolute bottom-0 right-0 bg-emerald-700 p-2 rounded-full text-white">
-                  <MessageCircle size={16} />
-                </div>
-              </div>
-              <h3 className="font-bold text-xl mb-1">{m.name}</h3>
-              <p className="text-slate-500 text-sm mb-4">{m.role}</p>
-              <div className="flex justify-center gap-3">
-                <button className="text-slate-400 hover:text-blue-600 transition-colors"><Facebook size={18} /></button>
-                <button className="text-slate-400 hover:text-pink-600 transition-colors"><Instagram size={18} /></button>
-                <button className="text-slate-400 hover:text-emerald-600 transition-colors"><MessageCircle size={18} /></button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const BlogPage = () => {
-  const posts = [
-    { id: 1, title: "Why Land Investment is the next Goldmine", date: "Feb 24, 2026", cat: "Investment", img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=500" },
-    { id: 2, title: "Checklist for Buying a Residential Plot in 2026", date: "Feb 18, 2026", cat: "Guide", img: "https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&q=80&w=500" },
-    { id: 3, title: "Real Estate Trends: What to Expect this Year", date: "Feb 10, 2026", cat: "Market News", img: "https://images.unsplash.com/photo-1510673398445-94f476ef2cbc?auto=format&fit=crop&q=80&w=500" },
-  ];
-
-  return (
-    <section className="pt-40 pb-20">
-      <div className="container mx-auto px-6">
-        <SectionHeading
-          badge="Blog & Updates"
-          title="Insights from Om Enterprises Realty"
-          subtitle="Stay updated with market trends, legal tips, and investment advice from our experts."
-        />
-        <div className="grid lg:grid-cols-3 gap-8">
-          {posts.map(post => (
-            <article key={post.id} className="bg-white rounded-3xl overflow-hidden shadow-lg group">
-              <div className="h-56 overflow-hidden relative">
-                <img src={post.img} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
-                <div className="absolute top-4 left-4 bg-emerald-700 text-white px-3 py-1 rounded-lg text-xs font-bold">
-                  {post.cat}
-                </div>
-              </div>
-              <div className="p-8 space-y-4">
-                <div className="flex items-center gap-4 text-slate-400 text-sm">
-                  <span className="flex items-center gap-1"><Calendar size={14} /> {post.date}</span>
-                  <span className="flex items-center gap-1"><Clock size={14} /> 5 min read</span>
-                </div>
-                <h3 className="text-xl font-bold leading-tight group-hover:text-emerald-700 transition-colors">
-                  {post.title}
-                </h3>
-                <button className="flex items-center gap-2 text-emerald-700 font-bold text-sm">
-                  Read Full Article <ArrowRight size={16} />
-                </button>
-              </div>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const ContactPage = () => (
-  <section className="pt-40 pb-20">
-    <div className="container mx-auto px-6">
-      <div className="grid lg:grid-cols-2 gap-16">
-        <div className="space-y-12">
-          <SectionHeading
-            badge="Get In Touch"
-            title="Invest Smartly with Om Enterprises Realty"
-            subtitle="Have questions about a property? Want a site visit? Fill out the form or reach us directly."
-          />
-
-          <div className="space-y-8">
-            <div className="flex gap-6">
-              <div className="bg-emerald-100 p-4 rounded-2xl text-emerald-700 h-fit"><Phone /></div>
-              <div>
-                <h4 className="font-bold text-lg">Call Us</h4>
-                <p className="text-slate-500">+91 98765 43210</p>
-                <p className="text-slate-500">+91 91234 56789</p>
-              </div>
-            </div>
-            <div className="flex gap-6">
-              <div className="bg-emerald-100 p-4 rounded-2xl text-emerald-700 h-fit"><Mail /></div>
-              <div>
-                <h4 className="font-bold text-lg">Email Us</h4>
-                <p className="text-slate-500">info@omrealty.in</p>
-                <p className="text-slate-500">sales@omrealty.in</p>
-              </div>
-            </div>
-            <div className="flex gap-6">
-              <div className="bg-emerald-100 p-4 rounded-2xl text-emerald-700 h-fit"><MapPin /></div>
-              <div>
-                <h4 className="font-bold text-lg">Our Office</h4>
-                <p className="text-slate-500">Head Office: Om Bhawan, Suite 402, Sector 150, Noida, UP</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-white p-10 rounded-[40px] shadow-2xl border border-slate-50">
-          <h3 className="text-2xl font-bold mb-8">Send Us a Message</h3>
-          <form className="space-y-6">
-            <div className="grid sm:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <label className="text-sm font-bold text-slate-700">Full Name</label>
-                <input type="text" placeholder="John Doe" className="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20" />
-              </div>
-              <div className="space-y-2">
-                <label className="text-sm font-bold text-slate-700">Email Address</label>
-                <input type="email" placeholder="john@example.com" className="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20" />
-              </div>
-            </div>
-            <div className="space-y-2">
-              <label className="text-sm font-bold text-slate-700">Subject</label>
-              <input type="text" placeholder="Property Inquiry" className="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20" />
-            </div>
-            <div className="space-y-2">
-              <label className="text-sm font-bold text-slate-700">Message</label>
-              <textarea rows={4} placeholder="How can we help you?" className="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20"></textarea>
-            </div>
-            <button className="w-full bg-emerald-800 text-white py-4 rounded-xl font-bold hover:bg-emerald-900 transition-all shadow-lg shadow-emerald-800/20">
-              Send Message
-            </button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-);
-
-// --- Main App Component ---
-
-const Home = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const [currentPage, setCurrentPage] = useState('home');
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Smooth scroll to top when page changes
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    setIsMenuOpen(false);
-  }, [currentPage]);
-
-  const navLinks = [
-    { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About' },
-    { id: 'properties', label: 'Properties' },
-    { id: 'team', label: 'Team' },
-    { id: 'blog', label: 'Blog' },
-    { id: 'contact', label: 'Contact' },
-  ];
-
-  const renderPage = () => {
-    switch (currentPage) {
-      case 'home': return <HomePage setPage={setCurrentPage} />;
-      case 'about': return <AboutPage />;
-      case 'properties': return <PropertiesPage />;
-      case 'team': return <TeamPage />;
-      case 'blog': return <BlogPage />;
-      case 'contact': return <ContactPage />;
-      default: return <HomePage setPage={setCurrentPage} />;
-    }
-  };
-
-  return (
-    <div className="min-h-screen bg-slate-50 font-sans text-slate-900 overflow-x-hidden">
-      {/* Floating Action Buttons */}
-      <div className="fixed right-4 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-3">
-        <button className="bg-blue-600 p-3 rounded-full text-white shadow-lg hover:scale-110 transition-transform"><Facebook size={20} /></button>
-        <button className="bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-600 p-3 rounded-full text-white shadow-lg hover:scale-110 transition-transform"><Instagram size={20} /></button>
-        <button className="bg-emerald-500 p-3 rounded-full text-white shadow-lg hover:scale-110 transition-transform"><MessageCircle size={20} /></button>
-        <button className="bg-blue-500 p-3 rounded-full text-white shadow-lg hover:scale-110 transition-transform"><Phone size={20} /></button>
-      </div>
-
-      {/* Navigation */}
-      <nav className={`fixed w-full z-[100] transition-all duration-300 ${scrolled || currentPage !== 'home' ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'}`}>
-        <div className="container mx-auto px-6 flex justify-between items-center">
-          <div className="flex items-center gap-2 cursor-pointer" onClick={() => setCurrentPage('home')}>
-            <div className="w-10 h-10 bg-white shadow-sm flex items-center justify-center rounded-lg border border-slate-100">
-              <Building className="text-emerald-700" size={24} />
-            </div>
-            <span className="text-2xl font-bold tracking-tight text-slate-800">Om Enterprises Realty</span>
-          </div>
-
-          <div className="hidden lg:flex items-center gap-8">
-            {navLinks.map(link => (
-              <button
-                key={link.id}
-                onClick={() => setCurrentPage(link.id)}
-                className={`transition-colors font-medium ${currentPage === link.id ? 'text-emerald-700' : 'text-slate-600 hover:text-emerald-600'}`}
-              >
-                {link.label}
-              </button>
-            ))}
-            <button
-              onClick={() => setCurrentPage('contact')}
-              className="bg-slate-800 text-white px-6 py-2 rounded-full font-medium hover:bg-emerald-700 transition-colors shadow-lg shadow-slate-800/20"
-            >
-              Contact
-            </button>
-          </div>
-
-          <button className="lg:hidden p-2 text-slate-800" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
-        </div>
-
-        {/* Mobile Menu */}
-        <div className={`lg:hidden fixed inset-0 bg-white z-[90] flex flex-col items-center justify-center gap-8 transition-transform duration-500 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-          {navLinks.map(link => (
-            <button
-              key={link.id}
-              onClick={() => setCurrentPage(link.id)}
-              className={`text-2xl font-bold ${currentPage === link.id ? 'text-emerald-700' : 'text-slate-400'}`}
-            >
-              {link.label}
-            </button>
-          ))}
-          <button
-            onClick={() => setCurrentPage('contact')}
-            className="mt-4 bg-emerald-700 text-white px-10 py-4 rounded-2xl font-bold"
-          >
-            Get In Touch
-          </button>
-        </div>
-      </nav>
-
-      {/* Page Content */}
-      <main className="animate-fade-in">
-        {renderPage()}
-      </main>
-
-      {/* Footer */}
-      <footer className="bg-slate-900 text-white py-20">
-        <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-4 gap-12 mb-16">
-            <div className="col-span-2 space-y-6">
-              <div className="flex items-center gap-2">
-                <div className="w-10 h-10 bg-white flex items-center justify-center rounded-lg">
-                  <Building className="text-slate-900" size={24} />
-                </div>
-                <span className="text-2xl font-bold">Om Enterprises Realty</span>
-              </div>
-              <p className="text-slate-400 max-w-sm leading-relaxed">
-                Premium plot investments and luxury farmhouse developments designed for growth, community, and lasting value.
-              </p>
-              <div className="flex gap-4">
-                {[Facebook, Instagram, MessageCircle, Phone].map((Icon, i) => (
-                  <button key={i} className="p-3 rounded-full bg-slate-800 text-slate-400 hover:bg-emerald-700 hover:text-white transition-all"><Icon size={18} /></button>
-                ))}
-              </div>
-            </div>
-            <div>
-              <h4 className="font-bold text-lg mb-6">Quick Links</h4>
-              <ul className="space-y-3 text-slate-400">
-                {navLinks.map(link => (
-                  <li key={link.id}><button onClick={() => setCurrentPage(link.id)} className="hover:text-emerald-400 transition-colors">{link.label}</button></li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-bold text-lg mb-6">Legal</h4>
-              <ul className="space-y-3 text-slate-400">
-                <li><a href="#" className="hover:text-emerald-400 transition-colors">Privacy Policy</a></li>
-                <li><a href="#" className="hover:text-emerald-400 transition-colors">Terms of Service</a></li>
-                <li><a href="#" className="hover:text-emerald-400 transition-colors">Legal Documents</a></li>
-                <li><a href="#" className="hover:text-emerald-400 transition-colors">Investment Disclaimer</a></li>
-              </ul>
-            </div>
-          </div>
-          <div className="pt-8 border-t border-slate-800 text-center text-slate-500 text-sm">
-            © 2026 Om Enterprises Realty. Designed for smart investors.
-          </div>
-        </div>
-      </footer>
-
-      {/* Custom Styles */}
-      <style dangerouslySetInnerHTML={{
-        __html: `
-        @keyframes fade-in {
-          from { opacity: 0; transform: translateY(10px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-in {
-          animation: fade-in 0.6s ease-out;
-        }
-        @keyframes bounce-slow {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-10px); }
-        }
-        .animate-bounce-slow {
-          animation: bounce-slow 4s ease-in-out infinite;
-        }
-      `}} />
-    </div>
-  );
-};
-
-export default Home;
+export default HomePage;
