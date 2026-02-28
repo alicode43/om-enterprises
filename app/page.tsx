@@ -107,11 +107,11 @@ const HomePage = () => (
             <div className="flex items-center gap-4">
               <div className="relative">
                 <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-emerald-500 p-0.5">
-                  <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=150" alt="Director" className="w-full h-full rounded-full object-cover" />
+                  <img src="image/amrita.jpeg" alt="Director" className="w-full h-full rounded-full object-cover" />
                 </div>
               </div>
               <div>
-                <h4 className="text-xl font-bold text-slate-800">Amritha Jha</h4>
+                <h4 className="text-xl font-bold text-slate-800">Amrita Jha</h4>
                 <p className="text-slate-500 font-medium text-sm">Director</p>
                 <div className="flex items-center gap-1.5 mt-1">
                   <div className="flex text-yellow-400">
