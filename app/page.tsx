@@ -254,8 +254,8 @@ const HomePage = () => (
             </p>
             <div className="flex items-center justify-between pt-4">
               <div className="flex items-center gap-4">
-                <button className="bg-emerald-800 text-white px-8 py-4 rounded-2xl font-black shadow-lg shadow-emerald-800/20 hover:bg-emerald-900 transition-all">SCHEDULE TOUR</button>
-                <button className="border-2 border-emerald-800 text-emerald-800 px-8 py-4 rounded-2xl font-black hover:bg-emerald-50 transition-all">VIEW GALLERY</button>
+                <Link href="/property/emerald-valley-plots" className="bg-emerald-800 text-white px-8 py-4 rounded-2xl font-black shadow-lg shadow-emerald-800/20 hover:bg-emerald-900 transition-all uppercase tracking-widest text-xs">VIEW DETAILS</Link>
+                <button className="border-2 border-emerald-800 text-emerald-800 px-8 py-4 rounded-2xl font-black hover:bg-emerald-50 transition-all uppercase tracking-widest text-xs">VIEW GALLERY</button>
               </div>
               <div className="flex flex-col items-end">
                 <span className="bg-emerald-100 text-emerald-700 px-4 py-1 rounded-full text-xs font-black uppercase mb-1">FOR SALE</span>
@@ -288,7 +288,7 @@ const HomePage = () => (
                 </div>
                 <div className="flex justify-between items-center pt-2">
                   <div className="text-2xl font-black text-slate-800">{p.price}</div>
-                  <button className="bg-emerald-800 text-white px-5 py-2 rounded-xl text-[10px] font-black hover:bg-emerald-900 shadow-md">VIEW</button>
+                  <Link href={`/property/${idx === 0 ? 'lake-country-side-farms' : 'grandthum-commercial'}`} className="bg-emerald-800 text-white px-5 py-2 rounded-xl text-[10px] font-black hover:bg-emerald-900 shadow-md">VIEW</Link>
                 </div>
               </div>
             </div>
@@ -321,7 +321,7 @@ const HomePage = () => (
               </p>
               <div className="flex justify-between items-center pt-4">
                 <div className="text-3xl font-black text-slate-800">₹40,00,000</div>
-                <button className="bg-emerald-700 text-white px-8 py-3 rounded-2xl font-black shadow-lg shadow-emerald-700/20 hover:bg-emerald-800 uppercase tracking-widest text-sm">VIEW DETAILS</button>
+                <Link href="/property/emerald-valley-plots" className="bg-emerald-700 text-white px-8 py-3 rounded-2xl font-black shadow-lg shadow-emerald-700/20 hover:bg-emerald-800 uppercase tracking-widest text-sm">VIEW DETAILS</Link>
               </div>
             </div>
           </div>
@@ -330,7 +330,7 @@ const HomePage = () => (
     </section>
 
     {/* Featured Agents Section */}
-    <section className="py-24 bg-slate-50">
+    {/* <section className="py-24 bg-slate-50">
       <div className="container mx-auto px-6 text-center space-y-4 mb-16">
         <h2 className="text-5xl font-black text-slate-800">Featured Agents</h2>
         <div className="w-20 h-1.5 bg-emerald-600 mx-auto rounded-full" />
@@ -367,7 +367,7 @@ const HomePage = () => (
           </div>
         ))}
       </div>
-    </section>
+    </section> */}
 
     {/* Why Us Section */}
     <section className="py-24 bg-white overflow-hidden">

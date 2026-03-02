@@ -34,11 +34,13 @@ const Navbar = () => {
     return (
         <nav className={`fixed w-full z-[100] transition-all duration-300 ${scrolled || !isHome ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'}`}>
             <div className="container mx-auto px-6 flex justify-between items-center">
-                <Link href="/" className="flex items-center gap-2 cursor-pointer">
-                    <div className="w-10 h-10 bg-white shadow-sm flex items-center justify-center rounded-lg border border-slate-100">
-                        <Building className="text-emerald-700" size={24} />
-                    </div>
-                    <span className="text-2xl font-bold tracking-tight text-slate-800">Om Enterprises Realty</span>
+                <Link href="/" className="flex items-center gap-3 cursor-pointer group">
+                    <img
+                        src="/image/logo.png"
+                        alt="Om Enterprises Logo"
+                        className="h-12 w-auto object-contain transition-transform group-hover:scale-105"
+                    />
+                    <span className="text-2xl font-black tracking-tight text-slate-800 uppercase leading-none">Om Enterprises<br /><span className="text-xs font-bold text-emerald-700 tracking-[0.2em]">Realty</span></span>
                 </Link>
 
                 {/* Desktop Links */}

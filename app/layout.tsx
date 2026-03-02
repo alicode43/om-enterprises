@@ -18,6 +18,21 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Om Enterprises Realty | Premium Plots & Farmhouses",
   description: "Invest in premium residential plots and luxury farmhouses with Om Enterprises Realty. Expert guidance for smart land investments near Yamuna Expressway.",
+  openGraph: {
+    title: "Om Enterprises Realty | Premium Plots & Farmhouses",
+    description: "Invest in premium residential plots and luxury farmhouses with Om Enterprises Realty.",
+    images: ["/image/logo.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Om Enterprises Realty | Premium Plots & Farmhouses",
+    description: "Invest in premium residential plots and luxury farmhouses with Om Enterprises Realty.",
+    images: ["/image/logo.png"],
+  },
+  icons: {
+    icon: "/image/logo.png",
+    apple: "/image/logo.png",
+  }
 };
 
 export default function RootLayout({

@@ -17,11 +17,16 @@ const Footer = () => {
             <div className="container mx-auto px-6">
                 <div className="grid md:grid-cols-4 gap-12 mb-16">
                     <div className="col-span-2 space-y-6">
-                        <div className="flex items-center gap-2">
-                            <div className="w-10 h-10 bg-white flex items-center justify-center rounded-lg">
-                                <Building className="text-slate-900" size={24} />
+                        <div className="flex items-center gap-3">
+                            <img
+                                src="/image/logo.png"
+                                alt="Om Enterprises Logo"
+                                className="h-14 w-auto object-contain brightness-0 invert"
+                            />
+                            <div className="flex flex-col">
+                                <span className="text-2xl font-black text-white uppercase leading-none tracking-tight">Om Enterprises</span>
+                                <span className="text-xs font-bold text-emerald-400 tracking-[0.3em] uppercase">Realty</span>
                             </div>
-                            <span className="text-2xl font-bold">Om Enterprises Realty</span>
                         </div>
                         <p className="text-slate-400 max-w-sm leading-relaxed">
                             Premium plot investments and luxury farmhouse developments designed for growth, community, and lasting value.
