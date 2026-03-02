@@ -49,9 +49,13 @@ export const properties: Property[] = [
         type: "Farm House",
         badge: "FOR SALE",
         images: [
-            "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=1200",
-            "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&q=80&w=800",
-            "https://images.unsplash.com/photo-1510673398445-94f476ef2cbc?auto=format&fit=crop&q=80&w=800"
+            "https://www.centuriongroup.in/assets/img/1.jpeg",
+            "https://www.centuriongroup.in/assets/img/2.jpeg",
+            "https://www.centuriongroup.in/assets/img/3.jpeg",
+            "https://www.centuriongroup.in/assets/img/4.jpeg",
+            "https://www.centuriongroup.in/assets/img/5.jpeg",
+            "https://www.centuriongroup.in/assets/img/6.jpeg",
+            "https://www.centuriongroup.in/assets/img/7.jpeg"
         ],
         description: "Lotus Farm House in Techzone offers a premium farmhouse living experience surrounded by greenery and open spaces. Designed for peace, privacy, and comfort, the project features spacious plots with well-planned internal roads, landscaped gardens, and modern infrastructure. Its prime location in the rapidly developing Techzone area ensures excellent connectivity to IT hubs, expressways, schools, hospitals, and daily essentials. Ideal for weekend retreats, luxury living, or long-term investment, Lotus Farm House combines nature with convenience. With clear titles, secure surroundings, and strong future appreciation potential, it is a perfect choice for those seeking a balanced and high-quality lifestyle away from city congestion.",
         features: [
@@ -92,29 +96,57 @@ export const properties: Property[] = [
     },
     {
         id: 2,
-        slug: "lake-country-side-farms",
-        title: "The Lake Country Side Farms",
-        location: "Yamuna Expressway",
-        price: "₹1.50 Cr",
-        priceValue: 15000000,
-        size: "1008 Sq Yd",
-        sizeValue: 1008,
-        type: "Farmhouse",
+        slug: "avs-city-plots",
+        title: "AVS City - Yamuna Expressway",
+        location: "Sector-17B Dankaur, Yamuna Expressway Growth Corridor",
+        locationShort: "Dankaur, Yamuna Expressway",
+        price: "₹40,000/sqyd",
+        priceValue: 40000,
+        size: "Various Plots",
+        sizeValue: 100,
+        type: "Residential Plot",
+        badge: "NAGAR NIGAM APPROVED",
         images: [
-            "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1200",
-            "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800"
+            "/image/avs/img1.jpeg",
+            "/image/avs/img2.jpeg",
+            "/image/avs/img3.jpeg",
+            "/image/avs/img4.jpeg",
+            "/image/avs/img5.jpeg",
+            "/image/avs/img6.jpeg",
+            "/image/avs/img7.jpeg"
         ],
-        description: "Experience luxury living by the lake with our exclusive countryside farms. Perfect for weekend getaways and sustainable living.",
+        description: "AVS City is strategically located in the heart of the Yamuna Expressway Growth Corridor, surrounded by India's most ambitious developments. Approved by Dankaur Nagar Nigam, this premium, future-ready community offers exclusive residential plots where modern living blends seamlessly with nature. With immediate registry and mutation available, it ensures a safe and transparent investment in a high-appreciation zone near the upcoming Jewar International Airport and Film City.",
         features: [
-            { icon: "Home", label: "SQ YD", value: "1,008" },
-            { icon: "Droplets", label: "WATER SUPPLY", value: "100%" },
-            { icon: "Maximize", label: "OPEN SPACE", value: "70%" },
-            { icon: "Car", label: "PARKING", value: "6" },
-            { icon: "Layers", label: "PHASE", value: "1" }
+            { icon: "ShieldCheck", label: "APPROVAL", value: "Nagar Nigam" },
+            { icon: "FileText", label: "REGISTRY", value: "Immediate" },
+            { icon: "Road", label: "ROADS", value: "25-30 Ft Wide" },
+            { icon: "TrendingUp", label: "GROWTH", value: "High Potential" },
+            { icon: "Map", label: "PLANNING", value: "Smart City" }
         ],
-        nearBy: [],
-        amenities: [],
-        neighborhoodHighlights: [],
+        nearBy: [
+            "F1 Racing Track (BIC)",
+            "Jewar International Airport",
+            "Upcoming Film City",
+            "Noida International University",
+            "Galgotias University"
+        ],
+        amenities: [
+            "Gated Security & CCTV",
+            "Clubhouse",
+            "Yoga & Meditation Center",
+            "Organic Farming Zones",
+            "Children's Play Area",
+            "Pet-Friendly Spaces",
+            "Sports Arena",
+            "Biodiversity Park",
+            "Family Party Lawn"
+        ],
+        neighborhoodHighlights: [
+            { icon: "GraduationCap", label: "IILM University", distance: "4 KM" },
+            { icon: "School", label: "Galgotias University", distance: "5 KM" },
+            { icon: "GraduationCap", label: "Noida Intl University", distance: "9 KM" },
+            { icon: "School", label: "Gautam Budha University", distance: "10 KM" }
+        ],
         agent: {
             name: "Sandeep Kumar",
             role: "Sales Director",
@@ -123,37 +155,5 @@ export const properties: Property[] = [
             image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200"
         }
     },
-    {
-        id: 3,
-        slug: "grandthum-commercial",
-        title: "Grandthum Commercial Hub",
-        location: "Greater Noida West",
-        price: "₹3.50 Cr",
-        priceValue: 35000000,
-        size: "5000 Sq Ft",
-        sizeValue: 5000,
-        type: "Appartments",
-        images: [
-            "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200",
-            "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800"
-        ],
-        description: "Premium commercial space in the heart of Greater Noida West. Excellent visibility and modern amenities for businesses.",
-        features: [
-            { icon: "Building", label: "SQ FT", value: "5,000" },
-            { icon: "Zap", label: "POWER BACKUP", value: "100%" },
-            { icon: "Shield", label: "SECURITY", value: "24/7" },
-            { icon: "Car", label: "PARKING", value: "10+" },
-            { icon: "Layers", label: "FLOORS", value: "32" }
-        ],
-        nearBy: [],
-        amenities: [],
-        neighborhoodHighlights: [],
-        agent: {
-            name: "Neha Sharma",
-            role: "Sales Manager",
-            phone: "+91-88888-77777",
-            email: "neha@omrealty.in",
-            image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=200"
-        }
-    }
+
 ];

@@ -268,8 +268,8 @@ const HomePage = () => (
         {/* Small Cards Column */}
         <div className="space-y-8">
           {[
-            { title: "The Lake Country Side Farms", loc: "Aligarh - Palwal State Highway, Tappal Dist. Aligarh U.P", price: "₹1,50,00,000", tag: "HOT DEAL", tagCol: "bg-orange-500", img: "https://images.unsplash.com/photo-1510673398445-94f476ef2cbc?auto=format&fit=crop&q=80&w=500" },
-            { title: "Grandthum", loc: "Plot no, A2, 2 road, Techzone 4, Patwari, Greater Noida, Uttar Pradesh", price: "₹3,50,00,000", tag: "NEW LISTING", tagCol: "bg-emerald-500", img: "https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&q=80&w=500" }
+            { title: "AVS City - Yamuna Expressway", loc: "Sector-17B Dankaur, Yamuna Expressway", price: "₹40,000/sqyd", tag: "NAGAR NIGAM APPROVED", tagCol: "bg-emerald-600", img: "/image/avs/img1.jpeg", slug: "avs-city-plots" },
+            { title: "Grandthum", loc: "Plot no, A2, 2 road, Techzone 4, Patwari, Greater Noida, Uttar Pradesh", price: "₹3,50,00,000", tag: "NEW LISTING", tagCol: "bg-emerald-500", img: "https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&q=80&w=500", slug: "grandthum-commercial" }
           ].map((p, idx) => (
             <div key={idx} className="bg-white rounded-[40px] overflow-hidden shadow-xl border border-slate-50 group flex flex-col h-[calc(50%-16px)]">
               <div className="relative h-56 overflow-hidden">
@@ -282,13 +282,13 @@ const HomePage = () => (
                   <p className="text-slate-400 text-xs flex items-center gap-1 font-medium"><MapPin size={12} className="text-emerald-600" /> {p.loc}</p>
                 </div>
                 <div className="flex items-center gap-3 text-[10px] font-bold text-slate-500 uppercase">
-                  <span className="flex items-center gap-1"><HomeIcon size={12} className="text-emerald-500" /> Farm Land</span>
-                  <span className="flex items-center gap-1 text-emerald-700">Flower Gardens</span>
-                  <span className="flex items-center gap-1">1008 Sq.Yd.</span>
+                  <span className="flex items-center gap-1"><HomeIcon size={12} className="text-emerald-500" /> Residential Plot</span>
+                  <span className="flex items-center gap-1 text-emerald-700">Gated Security</span>
+                  <span className="flex items-center gap-1">Near Airport</span>
                 </div>
                 <div className="flex justify-between items-center pt-2">
                   <div className="text-2xl font-black text-slate-800">{p.price}</div>
-                  <Link href={`/property/${idx === 0 ? 'lake-country-side-farms' : 'grandthum-commercial'}`} className="bg-emerald-800 text-white px-5 py-2 rounded-xl text-[10px] font-black hover:bg-emerald-900 shadow-md">VIEW</Link>
+                  <Link href={`/property/${p.slug}`} className="bg-emerald-800 text-white px-5 py-2 rounded-xl text-[10px] font-black hover:bg-emerald-900 shadow-md">VIEW</Link>
                 </div>
               </div>
             </div>
@@ -434,7 +434,7 @@ const HomePage = () => (
             </div>
 
             {/* Testimonial Quote */}
-            <div className="bg-emerald-700 rounded-[40px] p-10 text-white relative overflow-hidden group">
+            {/* <div className="bg-emerald-700 rounded-[40px] p-10 text-white relative overflow-hidden group">
               <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16 blur-3xl group-hover:scale-150 transition-transform duration-700" />
               <div className="text-4xl font-serif mb-6 opacity-30">“</div>
               <p className="text-xl font-medium leading-relaxed relative z-10 italic">
@@ -449,7 +449,7 @@ const HomePage = () => (
                   <p className="text-xs opacity-70">General Manager</p>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
