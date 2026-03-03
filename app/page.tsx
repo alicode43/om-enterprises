@@ -199,7 +199,7 @@ const HomePage = () => (
               </div>
               <div>
                 <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">Call us today</p>
-                <p className="text-lg font-bold text-slate-800">+91-95995-47191</p>
+                <p className="text-lg font-bold text-slate-800">+919311892805</p>
               </div>
             </div>
           </div>
@@ -466,7 +466,7 @@ const HomePage = () => (
         </p>
         <div className="flex flex-wrap justify-center gap-6 pt-4">
           <Link href="/contact" className="bg-emerald-800 text-white px-10 py-5 rounded-full font-black text-lg shadow-xl shadow-emerald-800/20 hover:bg-emerald-900 transition-all">Contact Us Today</Link>
-          <Link href="tel:+919599547191" className="border-2 border-emerald-800 text-emerald-800 px-10 py-5 rounded-full font-black text-lg hover:bg-emerald-50 transition-all">Schedule a Call</Link>
+          <Link href="tel:+919311892805" className="border-2 border-emerald-800 text-emerald-800 px-10 py-5 rounded-full font-black text-lg hover:bg-emerald-50 transition-all">Schedule a Call</Link>
         </div>
       </div>
     </section>

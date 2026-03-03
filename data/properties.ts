@@ -87,10 +87,10 @@ export const properties: Property[] = [
             { icon: "School", label: "NIIT( Noida international institute of technology)", distance: "2.5 KM" }
         ],
         agent: {
-            name: "Khushi Rajpoot",
+            name: "K t",
             role: "General Manager",
-            phone: "+91-95995-47191",
-            email: "sales@centuriongroup.in",
+            phone: "+91-9311892805",
+            email: "[EMAIL_ADDRESS]",
             image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200"
         }
     },
@@ -148,10 +148,10 @@ export const properties: Property[] = [
             { icon: "School", label: "Gautam Budha University", distance: "10 KM" }
         ],
         agent: {
-            name: "Sandeep Kumar",
+            name: "S ",
             role: "Sales Director",
-            phone: "+91-98765-43210",
-            email: "sandeep@omrealty.in",
+            phone: "+91-9311892805",
+            email: "[EMAIL_ADDRESS]",
             image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200"
         }
     },
